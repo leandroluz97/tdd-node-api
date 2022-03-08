@@ -10,10 +10,25 @@
     "type": "git",
     "url": "git+https://github.com/leandroluz97/tdd-node-api.git"
   },
+  "lint-staged": {
+    "*.js": [
+      "standard --fix"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/leandroluz97/tdd-node-api/issues"
   },
-  "homepage": "https://github.com/leandroluz97/tdd-node-api#readme"
+  "homepage": "https://github.com/leandroluz97/tdd-node-api#readme",
+  "devDependencies": {
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.5",
+    "standart": "^6.1.0"
+  }
 }
