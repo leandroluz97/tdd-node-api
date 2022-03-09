@@ -10,15 +10,10 @@
     "type": "git",
     "url": "git+https://github.com/leandroluz97/tdd-node-api.git"
   },
-  "lint-staged": {
-    "*.js": [
-      "standard --fix"
+  "standard": {
+    "env": [
+      "jest"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "author": "",
   "license": "ISC",
