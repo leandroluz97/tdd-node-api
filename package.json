@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watch --colors --silent",
-    "test:staged": "jest --passWithNoTests --findRelatedTests --silent"
+    "test": "jest --watchAll --colors --silent",
+    "test:staged": "jest --passWithNoTests --findRelatedTests --silent",
+    "test:ci": "jest"
   },
   "repository": {
     "type": "git",
