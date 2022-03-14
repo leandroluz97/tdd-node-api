@@ -98,6 +98,7 @@ describe("Login Router", () => {
     expect(httpResponse.statusCode).toBe(401);
     expect(httpResponse.body).toEqual(new UnauthorizedError());
   });
+
   test("Should return 200 when valid credentials are provided", async () => {
     const { sut, authUseCaseSpy } = makeSut();
     const httpRequest = {
@@ -149,4 +150,17 @@ describe("Login Router", () => {
     const httpResponse = await sut.route(httpRequest);
     expect(httpResponse.statusCode).toBe(500);
   });
+
+  // test("Should return 400 if an invalid email is provided", async () => {
+  //   const { sut } = makeSut();
+  //   const httpRequest = {
+  //     body: {
+  //       password: "invalid_email@gmail.com",
+  //       password: "any_password",
+  //     },
+  //   };
+  //   const httpResponse = await await sut.route(httpRequest);
+  //   expect(httpResponse.statusCode).toBe(400);
+  //   expect(httpResponse.body).toEqual(new InvalidParamError("email"));
+  // });
 });
