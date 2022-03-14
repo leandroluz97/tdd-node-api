@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1647291722837" clover="3.2.0">
-  <project timestamp="1647291722837" name="All files">
+<coverage generated="1647292238901" clover="3.2.0">
+  <project timestamp="1647292238901" name="All files">
     <metrics statements="39" coveredstatements="39" conditionals="8" coveredconditionals="8" methods="10" coveredmethods="10" elements="57" coveredelements="57" complexity="0" loc="39" ncloc="39" packages="2" files="6" classes="6"/>
     <package name="helpers">
       <metrics statements="20" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="8"/>
@@ -11,7 +11,7 @@
         <line num="3" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
         <line num="7" count="3" type="stmt"/>
-        <line num="13" count="7" type="stmt"/>
+        <line num="13" count="8" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
         <line num="27" count="2" type="stmt"/>
       </file>
@@ -30,8 +30,8 @@
       <file name="server-error.js" path="D:\Code\tdd-node-api\src\presentation\helpers\server-error.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
-        <line num="3" count="13" type="stmt"/>
-        <line num="4" count="13" type="stmt"/>
+        <line num="3" count="14" type="stmt"/>
+        <line num="4" count="14" type="stmt"/>
       </file>
       <file name="unauthorized-error.js" path="D:\Code\tdd-node-api\src\presentation\helpers\unauthorized-error.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -48,13 +48,13 @@
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
-        <line num="7" count="13" type="stmt"/>
-        <line num="8" count="13" type="stmt"/>
-        <line num="11" count="13" type="stmt"/>
-        <line num="12" count="13" type="stmt"/>
-        <line num="13" count="11" type="cond" truecount="2" falsecount="0"/>
+        <line num="7" count="14" type="stmt"/>
+        <line num="8" count="14" type="stmt"/>
+        <line num="11" count="14" type="stmt"/>
+        <line num="12" count="14" type="stmt"/>
+        <line num="13" count="12" type="cond" truecount="2" falsecount="0"/>
         <line num="14" count="1" type="stmt"/>
-        <line num="16" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="11" type="cond" truecount="2" falsecount="0"/>
         <line num="17" count="1" type="stmt"/>
         <line num="19" count="4" type="cond" truecount="2" falsecount="0"/>
         <line num="20" count="1" type="stmt"/>
@@ -62,7 +62,7 @@
         <line num="24" count="3" type="cond" truecount="2" falsecount="0"/>
         <line num="25" count="1" type="stmt"/>
         <line num="27" count="2" type="stmt"/>
-        <line num="30" count="7" type="stmt"/>
+        <line num="30" count="8" type="stmt"/>
       </file>
     </package>
   </project>
