@@ -22,6 +22,16 @@ class LoadUserByEmailRepositorySpy {
   }
 }
 
+const makeSut = () => {
+  const loadUserByEmailRepositorySpy = new LoadUserByEmailRepositorySpy();
+  const sut = new AuthUseCase(loadUserByEmailRepositorySpy);
+
+  return {
+    loadUserByEmailRepositorySpy,
+    sut,
+  };
+};
+
 describe("Auth UseCase", () => {
   test("Should throw if no email is provided", async () => {
     const sut = new AuthUseCase();
@@ -36,8 +46,7 @@ describe("Auth UseCase", () => {
   });
 
   test("Should call LoadUserByEmailRepository with correct email", async () => {
-    const loadUserByEmailRepositorySpy = new LoadUserByEmailRepositorySpy();
-    const sut = new AuthUseCase(loadUserByEmailRepositorySpy);
+    const { sut, loadUserByEmailRepositorySpy } = makeSut();
     await sut.auth("any_email@email.com", "any_password");
     expect(loadUserByEmailRepositorySpy.email).toBe("any_email@email.com");
   });
