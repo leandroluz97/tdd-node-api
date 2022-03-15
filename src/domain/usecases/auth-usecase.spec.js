@@ -1,15 +1,15 @@
-class AuthUseCaseSpy {
+class AuthUseCase {
   async auth(email, password) {
     if (!email) {
-      return null;
+      throw new Error();
     }
 
-    return this.accessToken;
+    // return this.accessToken;
   }
 }
 
-describe("Email Validator", () => {
-  test("Should return null if no email is provided", async () => {
+describe("Auth UseCase", () => {
+  test("Should throw if no email is provided", async () => {
     const sut = new AuthUseCase();
     const promise = sut.auth();
     expect(promise).rejects.toThrow();
