@@ -14,26 +14,13 @@ module.exports = class AuthUseCase {
       throw new MissingParamError("password");
     }
 
-    // if (!this.loadUserByEmailRepository) {
-    //   throw new MissingParamError("loadUserByEmailRepository");
-    // }
-    // if (!this.loadUserByEmailRepository.load) {
-    //   throw new InvalidParamError("loadUserByEmailRepository");
-    // }
     const user = await this.loadUserByEmailRepository.load(email);
-    if (!user) {
-      return null;
+    const isValid = user && (await this.encrypter.compare(password, user.password));
+    if (isValid) {
+      const accessToken = await this.tokenGenerator.generate(user.id);
+      return accessToken;
     }
 
-    const isValid = await this.encrypter.compare(password, user.password);
-    if (!isValid) {
-      return null;
-    }
-
-    const accessToken = await this.tokenGenerator.generate(user.id);
-    if (!accessToken) {
-      return null;
-    }
-    return accessToken;
+    return null;
   }
 };
