@@ -1,6 +1,70 @@
 const { MissingParamError } = require("../../utils/errors");
 const AuthUseCase = require("./auth-usecase");
 
+const makeSut = () => {
+  const loadUserByEmailRepositorySpy = makeLoadUserByEmailRepository();
+  const encrypterSpy = makeEncrypter();
+  const tokenGeneratorSpy = makeTokenGenerator();
+  const updateAccessTokenRepositorySpy = makeUpdateAccessTokenRepository();
+  const sut = new AuthUseCase({
+    loadUserByEmailRepository: loadUserByEmailRepositorySpy,
+    encrypter: encrypterSpy,
+    tokenGenerator: tokenGeneratorSpy,
+    updateAccessTokenRepository: updateAccessTokenRepositorySpy,
+  });
+
+  return {
+    sut,
+    loadUserByEmailRepositorySpy,
+    encrypterSpy,
+    tokenGeneratorSpy,
+    updateAccessTokenRepositorySpy,
+  };
+};
+const makeLoadUserByEmailRepository = () => {
+  class LoadUserByEmailRepositorySpy {
+    async load(email) {
+      this.email = email;
+      return this.user;
+    }
+  }
+  const loadUserByEmailRepositorySpy = new LoadUserByEmailRepositorySpy();
+  loadUserByEmailRepositorySpy.user = {
+    id: "any_id",
+    password: "hashed_password",
+  };
+
+  return loadUserByEmailRepositorySpy;
+};
+
+const makeLoadUserByEmailRepositoryWithError = () => {
+  class LoadUserByEmailRepositorySpy {
+    async load() {
+      throw new Error();
+    }
+  }
+  return new LoadUserByEmailRepositorySpy();
+};
+
+const makeUpdateAccessTokenRepository = () => {
+  class UpdateAccessTokenRepositorySpy {
+    async update(userId, accessToken) {
+      this.userId = userId;
+      this.accessToken = accessToken;
+    }
+  }
+
+  return new UpdateAccessTokenRepositorySpy();
+};
+const makeUpdateAccessTokenRepositoryWithError = () => {
+  class UpdateAccessTokenRepositorySpy {
+    async update() {
+      throw new Error();
+    }
+  }
+  return new UpdateAccessTokenRepositorySpy();
+};
+
 const makeEncrypter = () => {
   class EncrypterSpy {
     async compare(password, hashedPassword) {
@@ -44,48 +108,6 @@ const makeTokenGeneratorWithError = () => {
     }
   }
   return new TokenGeneratorSpy();
-};
-
-const makeLoadUserByEmailRepository = () => {
-  class LoadUserByEmailRepositorySpy {
-    async load(email) {
-      this.email = email;
-      return this.user;
-    }
-  }
-  const loadUserByEmailRepositorySpy = new LoadUserByEmailRepositorySpy();
-  loadUserByEmailRepositorySpy.user = {
-    id: "any_id",
-    password: "hashed_password",
-  };
-
-  return loadUserByEmailRepositorySpy;
-};
-const makeLoadUserByEmailRepositoryWithError = () => {
-  class LoadUserByEmailRepositorySpy {
-    async load() {
-      throw new Error();
-    }
-  }
-  return new LoadUserByEmailRepositorySpy();
-};
-
-const makeSut = () => {
-  const loadUserByEmailRepositorySpy = makeLoadUserByEmailRepository();
-  const encrypterSpy = makeEncrypter();
-  const tokenGeneratorSpy = makeTokenGenerator();
-  const sut = new AuthUseCase({
-    loadUserByEmailRepository: loadUserByEmailRepositorySpy,
-    encrypter: encrypterSpy,
-    tokenGenerator: tokenGeneratorSpy,
-  });
-
-  return {
-    sut,
-    loadUserByEmailRepositorySpy,
-    encrypterSpy,
-    tokenGeneratorSpy,
-  };
 };
 
 describe("Auth UseCase", () => {
@@ -157,6 +179,13 @@ describe("Auth UseCase", () => {
     const accessToken = await sut.auth("valid_email@email.com", "valid_password");
     expect(accessToken).toBe(tokenGeneratorSpy.accessToken);
     expect(accessToken).toBeTruthy();
+  });
+
+  test("Should call UpdateAccessTokenRepository with correct values", async () => {
+    const { sut, loadUserByEmailRepositorySpy, updateAccessTokenRepositorySpy, tokenGeneratorSpy } = makeSut();
+    await sut.auth("valid_email@email.com", "valid_password");
+    expect(updateAccessTokenRepositorySpy.userId).toBe(loadUserByEmailRepositorySpy.user.id);
+    expect(updateAccessTokenRepositorySpy.accessToken).toBe(tokenGeneratorSpy.accessToken);
   });
 
   test("Should throw if no dependency is provided", async () => {
