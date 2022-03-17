@@ -191,38 +191,57 @@ describe("Auth UseCase", () => {
   test("Should throw if no dependency is provided", async () => {
     const invalid = {};
     const loadUserByEmailRepository = makeLoadUserByEmailRepository();
+    const updateAccessTokenRepository = makeUpdateAccessTokenRepository();
     const encrypter = makeEncrypter();
+    const tokenGenerator = makeTokenGenerator();
     const suts = [].concat(
       new AuthUseCase(),
       new AuthUseCase({
         loadUserByEmailRepository: null,
         encrypter: null,
         tokenGenerator: null,
+        updateAccessTokenRepository: null,
       }),
       new AuthUseCase({
         loadUserByEmailRepository: invalid,
         encrypter: null,
         tokenGenerator: null,
+        updateAccessTokenRepository: null,
       }),
       new AuthUseCase({
         loadUserByEmailRepository,
         encrypter: null,
         tokenGenerator: null,
+        updateAccessTokenRepository: null,
       }),
       new AuthUseCase({
         loadUserByEmailRepository,
         encrypter: invalid,
         tokenGenerator: null,
+        updateAccessTokenRepository: null,
       }),
       new AuthUseCase({
         loadUserByEmailRepository,
         encrypter,
         tokenGenerator: null,
+        updateAccessTokenRepository: null,
       }),
       new AuthUseCase({
         loadUserByEmailRepository,
         encrypter,
         tokenGenerator: invalid,
+        updateAccessTokenRepository: null,
+      }),
+      new AuthUseCase({
+        loadUserByEmailRepository,
+        encrypter,
+        tokenGenerator,
+      }),
+      new AuthUseCase({
+        loadUserByEmailRepository,
+        encrypter,
+        tokenGenerator: invalid,
+        updateAccessTokenRepository: invalid,
       })
     );
     for (const sut of suts) {
