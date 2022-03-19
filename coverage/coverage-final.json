@@ -1,1 +1,2 @@
-{}
+{"D:\\Code\\tdd-node-api\\src\\utils\\errors\\index.js": {"path":"D:\\Code\\tdd-node-api\\src\\utils\\errors\\index.js","statementMap":{"0":{"start":{"line":1,"column":26},"end":{"line":1,"column":58}},"1":{"start":{"line":2,"column":26},"end":{"line":2,"column":58}},"2":{"start":{"line":4,"column":0},"end":{"line":7,"column":2}}},"fnMap":{},"branchMap":{},"s":{"0":1,"1":1,"2":1},"f":{},"b":{},"_coverageSchema":"1a1c01bbd47fc00a2c39e90264f33305004495a9","hash":"63aab1e8cab9c9aa27c6f00cd7f4a92e916bb193"}
+}
