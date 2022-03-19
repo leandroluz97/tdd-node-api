@@ -20,4 +20,11 @@ describe("En crypter", () => {
     const isValid = await sut.compare("any_value", "hashed_value");
     expect(isValid).toBe(false);
   });
+
+  test("Should teturn false if bcrypt return false", async () => {
+    const sut = new Encrypter();
+    const isValid = await sut.compare("any_value", "hashed_value");
+    expect(bcrypt.value).toBe("any_value");
+    expect(bcrypt.hash).toBe("hashed_value");
+  });
 });
