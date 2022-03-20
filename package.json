@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --watchAll --colors --silent --passWithNoTests",
-    "test:unit": "jest --watch --colors --silent -c jest-unit-config.js",
+    "test:unit": "jest --watch --colors -c jest-unit-config.js",
     "test:integration": "jest --watch --colors --silent -c jest-integration-config.js",
     "test:staged": "jest --passWithNoTests --findRelatedTests --silent",
     "test:ci": "jest --coverage --nosStackTrace --silent"
