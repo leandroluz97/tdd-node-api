@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1647819615864" clover="3.2.0">
-  <project timestamp="1647819615864" name="All files">
-    <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5" elements="17" coveredelements="17" complexity="0" loc="12" ncloc="12" packages="2" files="2" classes="2"/>
-    <package name="helper">
+<coverage generated="1647820078841" clover="3.2.0">
+  <project timestamp="1647820078841" name="All files">
+    <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5" elements="20" coveredelements="20" complexity="0" loc="15" ncloc="15" packages="3" files="3" classes="3"/>
+    <package name="infra.helper">
       <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
       <file name="mongo-helper.js" path="D:\Code\tdd-node-api\src\infra\helper\mongo-helper.js">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
@@ -16,14 +16,23 @@
         <line num="21" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="repositories">
+    <package name="infra.repositories">
       <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="load-user-by-email-repository.js" path="D:\Code\tdd-node-api\src\infra\repositories\load-user-by-email-repository.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
         <line num="16" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="utils.errors">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="D:\Code\tdd-node-api\src\utils\errors\index.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
       </file>
     </package>
   </project>
