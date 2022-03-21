@@ -13,13 +13,21 @@ const makeSut = () => {
 };
 
 describe("UpdatedAccessToken Repository", () => {
+  let fakeUserId;
+
   beforeAll(async () => {
     await MongoHelper.connect(process.env.MONGO_URL, "");
     db = await MongoHelper.getDb();
   });
 
-  afterEach(async () => {
-    await db.collection("users").deleteMany();
+  beforeEach(async () => {
+    let userModel = db.collection("users");
+    await userModel.deleteMany();
+    let fakeUser = await userModel.insertOne({
+      email: "valid_email@email.com",
+      password: "hashed_password",
+    });
+    fakeUserId = fakeUser.insertedId;
   });
   afterAll(async () => {
     await MongoHelper.disconnect();
@@ -27,33 +35,21 @@ describe("UpdatedAccessToken Repository", () => {
 
   test("Should update user with given accessToken", async () => {
     const { sut, userModel } = makeSut();
-    const fakeUser = await userModel.insertOne({
-      email: "valid_email@email.com",
-      password: "hashed_password",
-    });
-    const user = await sut.update(fakeUser.insertedId, "valid_token");
-    const updatedFakeUser = await userModel.findOne({ _id: fakeUser.insertedId });
+    await sut.update(fakeUserId, "valid_token");
+    const updatedFakeUser = await userModel.findOne({ _id: fakeUserId });
     expect(updatedFakeUser.accessToken).toBe("valid_token");
   });
 
   test("Should throw if no userModel is provided", async () => {
     const sut = new UpdateAccessTokenRepository();
     const userModel = db.collection("users");
-    const fakeUser = await userModel.insertOne({
-      email: "valid_email@email.com",
-      password: "hashed_password",
-    });
-    const promise = sut.update(fakeUser.insertedId, "valid_token");
+    const promise = sut.update(fakeUserId, "valid_token");
     expect(promise).rejects.toThrow();
   });
 
   test("Should throw if no params are provided", async () => {
-    const { sut, userModel } = makeSut();
-    const fakeUser = await userModel.insertOne({
-      email: "valid_email@email.com",
-      password: "hashed_password",
-    });
+    const { sut } = makeSut();
     expect(sut.update()).rejects.toThrow(new MissingParamError("userId"));
-    expect(sut.update(fakeUser.insertedId)).rejects.toThrow(new MissingParamError("accessToken"));
+    expect(sut.update(fakeUserId)).rejects.toThrow(new MissingParamError("accessToken"));
   });
 });
