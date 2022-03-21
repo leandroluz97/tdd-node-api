@@ -4,7 +4,7 @@ const app = require("../config/app");
 
 describe("Cors Middleware", () => {
   test("Should enable CORS", async () => {
-    app.get("/test_cors", () => {
+    app.get("/test_cors", (req, res) => {
       res.send();
     });
     const result = await request(app).get("/test_cors");
