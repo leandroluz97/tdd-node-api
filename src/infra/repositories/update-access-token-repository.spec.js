@@ -2,6 +2,14 @@ const { MissingParamError } = require("../../utils/errors");
 const MongoHelper = require("../helper/mongo-helper");
 let db;
 
+const makeSut = () => {
+  const userModel = db.collection("users");
+  const sut = new UpdateAccessTokenRepository(userModel);
+  return {
+    sut,
+    userModel,
+  };
+};
 class UpdateAccessTokenRepository {
   constructor(userModel) {
     this.userModel = userModel;
@@ -36,8 +44,7 @@ describe("UpdatedAccessToken Repository", () => {
   });
 
   test("Should update user with given accessToken", async () => {
-    const userModel = db.collection("users");
-    const sut = new UpdateAccessTokenRepository(userModel);
+    const { sut, userModel } = makeSut();
     const fakeUser = await userModel.insertOne({
       email: "valid_email@email.com",
       password: "hashed_password",
