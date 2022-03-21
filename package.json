@@ -2,8 +2,9 @@
   "name": "tdd-node-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/main/index.js",
   "scripts": {
+    "start": "node src/main/index.js",
     "test": "jest --watchAll --colors --silent --passWithNoTests",
     "test:unit": "jest --watch --colors -c jest-unit-config.js",
     "test:integration": "jest --watch --colors --silent -c jest-integration-config.js",
@@ -34,6 +35,7 @@
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "express": "^4.17.3",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.4.1",
     "validator": "^13.7.0"
