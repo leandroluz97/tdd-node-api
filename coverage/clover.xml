@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1647898244808" clover="3.2.0">
-  <project timestamp="1647898244808" name="All files">
-    <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="5" coveredelements="5" complexity="0" loc="5" ncloc="5" packages="1" files="1" classes="1"/>
-    <file name="app.js" path="D:\Code\tdd-node-api\src\main\config\app.js">
-      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <line num="1" count="2" type="stmt"/>
-      <line num="2" count="2" type="stmt"/>
-      <line num="3" count="2" type="stmt"/>
-      <line num="5" count="2" type="stmt"/>
-      <line num="7" count="2" type="stmt"/>
-    </file>
+<coverage generated="1647900004977" clover="3.2.0">
+  <project timestamp="1647900004977" name="All files">
+    <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1" elements="15" coveredelements="15" complexity="0" loc="14" ncloc="14" packages="2" files="3" classes="3"/>
+    <package name="config">
+      <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="app.js" path="D:\Code\tdd-node-api\src\main\config\app.js">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+      </file>
+      <file name="setup.js" path="D:\Code\tdd-node-api\src\main\config\setup.js">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="middlewares">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="json-parser.js" path="D:\Code\tdd-node-api\src\main\middlewares\json-parser.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+      </file>
+    </package>
   </project>
 </coverage>
