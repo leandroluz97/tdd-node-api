@@ -5,9 +5,9 @@
   "main": "src/main/index.js",
   "scripts": {
     "start": "node src/main/index.js",
-    "test": "jest --watchAll --colors --silent --passWithNoTests",
-    "test:unit": "jest --watch --colors -c --runInBand jest-unit-config.js",
-    "test:integration": "jest --watch --colors --silent -c --runInBand jest-integration-config.js",
+    "test": "jest --watchAll --colors --silent --passWithNoTests --detectOpenHandles --forceExit",
+    "test:unit": "jest --watch --colors -c --detectOpenHandles --forceExit jest-unit-config.js",
+    "test:integration": "jest --watch --colors --silent -c --detectOpenHandles --forceExit jest-integration-config.js",
     "test:staged": "jest --passWithNoTests --findRelatedTests --silent",
     "test:ci": "jest --coverage --nosStackTrace --silent"
   },
