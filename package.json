@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node src/main/index.js",
     "test": "jest --watchAll --colors --silent --passWithNoTests",
-    "test:unit": "jest --watch --colors -c jest-unit-config.js",
-    "test:integration": "jest --watch --colors --silent -c jest-integration-config.js",
+    "test:unit": "jest --watch --colors -c --runInBand jest-unit-config.js",
+    "test:integration": "jest --watch --colors --silent -c --runInBand jest-integration-config.js",
     "test:staged": "jest --passWithNoTests --findRelatedTests --silent",
     "test:ci": "jest --coverage --nosStackTrace --silent"
   },
