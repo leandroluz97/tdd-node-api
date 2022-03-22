@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1647900769732" clover="3.2.0">
-  <project timestamp="1647900769732" name="All files">
+<coverage generated="1647935533035" clover="3.2.0">
+  <project timestamp="1647935533035" name="All files">
     <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="5" coveredelements="5" complexity="0" loc="5" ncloc="5" packages="1" files="1" classes="1"/>
     <file name="app.js" path="D:\Code\tdd-node-api\src\main\config\app.js">
       <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <line num="1" count="1" type="stmt"/>
-      <line num="2" count="1" type="stmt"/>
-      <line num="3" count="1" type="stmt"/>
-      <line num="5" count="1" type="stmt"/>
-      <line num="7" count="1" type="stmt"/>
+      <line num="1" count="2" type="stmt"/>
+      <line num="2" count="2" type="stmt"/>
+      <line num="3" count="2" type="stmt"/>
+      <line num="5" count="2" type="stmt"/>
+      <line num="7" count="2" type="stmt"/>
     </file>
   </project>
 </coverage>
